@@ -59,7 +59,7 @@ $(OBJ): config.h Makefile $(DEPS) | $(ODIR)
 $(ODIR):
 	@mkdir -p $@
 
-$(ODIR)/bytecode.c: src/wrk.lua $(DEPS)
+$(ODIR)/bytecode.o: src/wrk.lua $(DEPS)
 	@echo LUAJIT $<
 	@$(SHELL) -c 'PATH="obj/bin:$(PATH)" luajit -b "$(CURDIR)/$<" "$(CURDIR)/$@"'
 
